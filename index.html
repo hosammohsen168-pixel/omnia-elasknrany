@@ -1,0 +1,762 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Omnia Elaskandrany | Senior Benefits Specialist - Fridal Egypt</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cinzel, Plus Jakarta Sans & Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- QRCode.js Library for real scannable QR generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        arabic: ['Cairo', 'sans-serif'],
+                        display: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        royal: {
+                            950: '#050811',
+                            900: '#0a0f1d',
+                            800: '#111827',
+                        },
+                        gold: {
+                            100: '#FBF5E6',
+                            200: '#F3E5AB',
+                            300: '#E6C775',
+                            400: '#D4AF37',
+                            500: '#AA771C',
+                            600: '#8A5A10',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Luxury Styling & Micro-interactions */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050811;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(17, 35, 78, 0.45) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, #0a0f1d 0%, #050811 100%);
+            font-family: 'Cairo', sans-serif;
+            color: #f8fafc;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Metallic Gold Text Gradient */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF3D1 0%, #D4AF37 45%, #AA771C 75%, #F3E5AB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shineText 6s linear infinite;
+        }
+
+        @keyframes shineText {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Luxury Gold Button Gradient */
+        .bg-gold-luxury {
+            background: linear-gradient(135deg, #E5C158 0%, #D4AF37 35%, #AA771C 75%, #D4AF37 100%);
+            background-size: 200% 200%;
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .bg-gold-luxury:hover, .bg-gold-luxury:active {
+            background-position: right center;
+            box-shadow: 0 14px 30px -5px rgba(212, 175, 55, 0.65), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        /* Glassmorphic Card Container */
+        .luxury-card {
+            background: linear-gradient(165deg, rgba(17, 24, 39, 0.85) 0%, rgba(10, 14, 24, 0.94) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.85),
+                0 0 35px rgba(212, 175, 55, 0.08),
+                inset 0 1px 1px rgba(255, 243, 209, 0.15);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+        }
+
+        /* Interactive Spotlight Glare Effect on Touch/Mouse */
+        .card-glare {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(circle 260px at var(--x, 50%) var(--y, 20%), rgba(212, 175, 55, 0.14), transparent 80%);
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Animated Glowing Avatar Ring */
+        .avatar-glow-wrapper {
+            position: relative;
+            padding: 5px;
+            border-radius: 9999px;
+            background: conic-gradient(from 0deg, #AA771C, #F3E5AB, #D4AF37, #0a0f1d, #D4AF37, #F3E5AB, #AA771C);
+            animation: rotateBorder 8s linear infinite;
+            box-shadow: 0 0 28px rgba(212, 175, 55, 0.38);
+        }
+
+        @keyframes rotateBorder {
+            0% { filter: hue-rotate(0deg); }
+            50% { box-shadow: 0 0 38px rgba(243, 229, 171, 0.55); }
+            100% { filter: hue-rotate(0deg); }
+        }
+
+        /* Pulse Ring around Avatar */
+        .avatar-pulse::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 9999px;
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            animation: pulseGold 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulseGold {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.06); opacity: 0.15; }
+        }
+
+        /* Action Button Glass Styling */
+        .action-btn {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(212, 175, 55, 0.04) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.22);
+            transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn:hover, .action-btn:active {
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.14) 0%, rgba(17, 24, 39, 0.9) 100%);
+            border-color: rgba(212, 175, 55, 0.65);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.18);
+        }
+
+        /* Shimmer sweep on main CTA */
+        .shimmer-cta {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-cta::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 40%;
+            height: 200%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(25deg);
+            animation: shimmerSweep 3.8s infinite;
+        }
+
+        @keyframes shimmerSweep {
+            0% { left: -60%; }
+            35%, 100% { left: 130%; }
+        }
+
+        /* Subtle Pattern Overlay */
+        .bg-luxury-pattern {
+            background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050811;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #AA771C;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-3 sm:p-6 select-none">
+
+    <!-- Floating Ambient Background Particles -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-gold-400/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 -left-28 w-80 h-80 bg-blue-900/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 right-1/4 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Main Mobile-First Card Wrapper -->
+    <main id="businessCard" class="luxury-card w-full max-w-[430px] rounded-[2.2rem] z-10 my-2 transition-all duration-300">
+        <!-- Dynamic Touch/Cursor Glare Layer -->
+        <div id="cardGlare" class="card-glare"></div>
+
+        <!-- Top Decorative Header Banner -->
+        <div class="relative h-36 bg-gradient-to-b from-[#162038] via-[#0e1526] to-transparent bg-luxury-pattern px-5 pt-5 flex justify-between items-start border-b border-gold-400/15">
+            
+            <!-- Top Right: QR Code Modal Trigger -->
+            <button onclick="openQRModal()" aria-label="عرض رمز المسح السريع QR" class="z-20 flex items-center gap-2 px-3.5 py-2 rounded-full bg-royal-950/75 border border-gold-400/40 text-gold-200 hover:border-gold-300 hover:bg-gold-400/15 transition-all shadow-lg active:scale-95">
+                <i class="fa-solid fa-qrcode text-gold-400 text-base"></i>
+                <span class="text-xs font-semibold tracking-wide">رمز QR</span>
+            </button>
+
+            <!-- Brand Badge Center/Left -->
+            <div class="z-20 flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full text-[11px] font-sans font-semibold uppercase tracking-widest bg-gold-400/10 border border-gold-400/30 text-gold-200">
+                    Fridal Egypt
+                </span>
+                <button onclick="shareCard()" aria-label="مشاركة البطاقة" class="w-9 h-9 rounded-full bg-royal-950/75 border border-gold-400/40 text-gold-300 flex items-center justify-center hover:bg-gold-400/15 transition-all active:scale-95">
+                    <i class="fa-solid fa-share-nodes text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Decorative Golden Arch Line -->
+            <svg class="absolute bottom-0 left-0 w-full h-8 text-gold-400/20 pointer-events-none" preserveAspectRatio="none" viewBox="0 0 400 30" fill="none">
+                <path d="M0 30 Q200 -10 400 30" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            </svg>
+        </div>
+
+        <!-- Profile Avatar & Identity Section -->
+        <div class="relative z-20 px-6 -mt-16 flex flex-col items-center text-center">
+            
+            <!-- Circular Profile Picture with Illuminated Golden Frame -->
+            <div class="relative avatar-pulse">
+                <div class="avatar-glow-wrapper w-32 h-32 sm:w-36 sm:h-36">
+                    <div class="w-full h-full rounded-full overflow-hidden bg-royal-900 border-2 border-royal-950 relative">
+                        <img 
+                            id="profileImage"
+                            src="https://xatimg.com/image/plEJmwdhYfJ0.png" 
+                            alt="Omnia Elaskandrany - Senior Benefits Specialist"
+                            class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                            onerror="this.onerror=null; this.src='https://placehold.co/300x300/0a0f1d/D4AF37?text=OE';"
+                        />
+                    </div>
+                </div>
+                <!-- Verified / Active Status Golden Badge -->
+                <span title="Verified Executive Profile" class="absolute bottom-1 right-1 w-8 h-8 rounded-full bg-gradient-to-tr from-gold-500 to-gold-300 text-royal-950 flex items-center justify-center shadow-lg border-2 border-royal-900">
+                    <i class="fa-solid fa-award text-xs"></i>
+                </span>
+            </div>
+
+            <!-- Name & Professional Title -->
+            <div class="mt-4 space-y-1" dir="ltr">
+                <h1 class="font-display text-xl sm:text-2xl font-bold tracking-wider text-gold-gradient drop-shadow-sm">
+                    Omnia Elaskandrany
+                </h1>
+                <div class="flex flex-wrap items-center justify-center gap-1.5 text-gold-200/90 font-sans text-xs sm:text-[13px] font-semibold tracking-wide uppercase">
+                    <span>Senior Benefits Specialist</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+                    <span class="text-gold-400 font-bold">Fridal Egypt</span>
+                </div>
+            </div>
+
+            <!-- Golden Divider Ornament -->
+            <div class="flex items-center justify-center gap-2 my-3.5 w-3/4">
+                <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-gold-400/50 to-gold-400"></div>
+                <i class="fa-solid fa-diamond text-[8px] text-gold-400 rotate-45"></i>
+                <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent via-gold-400/50 to-gold-400"></div>
+            </div>
+
+            <!-- 2-Line English Bio related to Employee Benefits & Total Rewards -->
+            <p dir="ltr" class="font-sans text-xs sm:text-[13px] leading-relaxed text-slate-300/90 max-w-xs px-2 italic">
+                "Designing strategic employee benefits and total rewards programs that empower talent and elevate organizational wellbeing."
+            </p>
+        </div>
+
+        <!-- Primary Killer Feature: Save Contact (vCard) Button -->
+        <div class="relative z-20 px-6 mt-6">
+            <button 
+                onclick="downloadVCard()" 
+                class="shimmer-cta bg-gold-luxury w-full py-4 px-6 rounded-2xl text-royal-950 font-bold text-base sm:text-lg flex items-center justify-center gap-3 shadow-xl active:scale-98 cursor-pointer"
+            >
+                <span class="w-8 h-8 rounded-full bg-royal-950/15 flex items-center justify-center text-royal-950">
+                    <i class="fa-solid fa-user-plus text-base"></i>
+                </span>
+                <span>➕ احفظ رقمي في هاتفك</span>
+                <span class="text-xs font-sans font-extrabold uppercase tracking-wider bg-royal-950/15 px-2.5 py-0.5 rounded-full">
+                    vCard
+                </span>
+            </button>
+        </div>
+
+        <!-- Quick Interactive Action Buttons -->
+        <div class="relative z-20 px-6 mt-5 space-y-3">
+            
+            <div class="flex items-center justify-between px-1 mb-1">
+                <span class="text-xs font-semibold text-gold-300/80 tracking-wide">التواصل السريع المباشر</span>
+                <span class="text-[11px] font-sans text-slate-400">Quick Connect</span>
+            </div>
+
+            <!-- 1. Direct Phone Call -->
+            <div class="action-btn rounded-2xl p-3.5 flex items-center justify-between group">
+                <a href="tel:+201096850600" class="flex items-center gap-3.5 flex-1">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-gold-400/25 to-gold-600/10 border border-gold-400/40 flex items-center justify-center text-gold-300 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-phone-volume text-lg"></i>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-bold text-white group-hover:text-gold-200 transition-colors">اتصال مباشر</div>
+                        <div dir="ltr" class="text-xs font-sans text-slate-400 font-medium tracking-wider">01096850600</div>
+                    </div>
+                </a>
+                <div class="flex items-center gap-1.5">
+                    <button onclick="copyText('01096850600', 'تم نسخ رقم الموبايل بنجاح')" title="نسخ الرقم" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-gold-400/20 text-slate-400 hover:text-gold-300 flex items-center justify-center transition-colors">
+                        <i class="fa-regular fa-copy text-xs"></i>
+                    </button>
+                    <a href="tel:+201096850600" class="w-8 h-8 rounded-lg bg-gold-400/15 text-gold-300 flex items-center justify-center">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. Instant WhatsApp Chat -->
+            <a href="https://wa.me/201096850600?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3.%20%D8%A3%D9%85%D9%86%D9%8A%D8%A9%D8%8C%20%D8%AA%D8%B4%D8%B1%D9%81%D8%AA%20%D8%A8%D8%A7%D9%84%D8%AD%D8%B5%D9%88%D9%84%20%D8%B9%D9%84%D9%89%20%D8%A8%D8%B7%D8%A7%D9%82%D8%AA%D9%83%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" class="action-btn rounded-2xl p-3.5 flex items-center justify-between group block">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/25 to-emerald-700/10 border border-emerald-400/40 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">محادثة واتساب فورية</div>
+                        <div class="text-xs text-slate-400">تواصل سريع عبر WhatsApp Business</div>
+                    </div>
+                </div>
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-300 flex items-center justify-center">
+                    <i class="fa-solid fa-arrow-up-left-from-circle text-xs"></i>
+                </div>
+            </a>
+
+            <!-- 3. Official Email -->
+            <div class="action-btn rounded-2xl p-3.5 flex items-center justify-between group">
+                <a href="mailto:Omnia.Elaskandrany@fridalegypt.com?subject=Benefits%20%26%20HR%20Inquiry%20-%20Fridal%20Egypt" class="flex items-center gap-3.5 flex-1 min-w-0">
+                    <div class="w-11 h-11 shrink-0 rounded-xl bg-gradient-to-br from-gold-400/25 to-gold-600/10 border border-gold-400/40 flex items-center justify-center text-gold-300 group-hover:scale-110 transition-transform">
+                        <i class="fa-regular fa-envelope text-lg"></i>
+                    </div>
+                    <div class="text-right truncate">
+                        <div class="text-sm font-bold text-white group-hover:text-gold-200 transition-colors">البريد الإلكتروني الرسمي</div>
+                        <div dir="ltr" class="text-xs font-sans text-slate-400 truncate">Omnia.Elaskandrany@fridalegypt.com</div>
+                    </div>
+                </a>
+                <div class="flex items-center gap-1.5 shrink-0 mr-2">
+                    <button onclick="copyText('Omnia.Elaskandrany@fridalegypt.com', 'تم نسخ البريد الإلكتروني بنجاح')" title="نسخ الإيميل" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-gold-400/20 text-slate-400 hover:text-gold-300 flex items-center justify-center transition-colors">
+                        <i class="fa-regular fa-copy text-xs"></i>
+                    </button>
+                    <a href="mailto:Omnia.Elaskandrany@fridalegypt.com" class="w-8 h-8 rounded-lg bg-gold-400/15 text-gold-300 flex items-center justify-center">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Company Location (Google Maps) -->
+            <a href="https://www.google.com/maps/search/?api=1&query=%D8%A7%D9%84%D9%85%D9%86%D8%B7%D9%82%D8%A9+%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D9%8A%D8%A9+%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9+%D8%B4%D8%B1%D9%83%D8%A9+%D9%81%D8%B1%D9%8A%D8%AF%D8%A7%D9%84+Fridal+Egypt" target="_blank" rel="noopener noreferrer" class="action-btn rounded-2xl p-3.5 flex items-center justify-between group block">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500/25 to-gold-600/10 border border-gold-400/40 flex items-center justify-center text-gold-300 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-location-dot text-lg"></i>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-bold text-white group-hover:text-gold-200 transition-colors">موقع الشركة (Google Maps)</div>
+                        <div class="text-xs text-slate-400">المنطقة الصناعية الثانية - شركة فريدال</div>
+                    </div>
+                </div>
+                <div class="w-8 h-8 rounded-lg bg-gold-400/15 text-gold-300 flex items-center justify-center">
+                    <i class="fa-solid fa-map-location-dot text-xs"></i>
+                </div>
+            </a>
+        </div>
+
+        <!-- Social Media & Digital Presence Bar -->
+        <div class="relative z-20 px-6 mt-6 pt-5 border-t border-gold-400/15">
+            <p class="text-center text-xs text-slate-400 mb-3.5 font-medium">منصات التواصل الاجتماعي والروابط الرسمية</p>
+            
+            <div class="flex items-center justify-center gap-3.5">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/search/results/all/?keywords=Omnia%20Elaskandrany%20Fridal%20Egypt" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-11 h-11 rounded-2xl action-btn flex items-center justify-center text-gold-300 hover:text-white text-lg">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-11 h-11 rounded-2xl action-btn flex items-center justify-center text-gold-300 hover:text-white text-lg">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-11 h-11 rounded-2xl action-btn flex items-center justify-center text-gold-300 hover:text-white text-lg">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <!-- Official Fridal Domain / Website -->
+                <a href="https://fridalegypt.com" target="_blank" rel="noopener noreferrer" aria-label="Fridal Egypt Website" class="w-11 h-11 rounded-2xl action-btn flex items-center justify-center text-gold-300 hover:text-white text-lg">
+                    <i class="fa-solid fa-globe"></i>
+                </a>
+                <!-- Quick QR Trigger Button -->
+                <button onclick="openQRModal()" aria-label="QR Code" class="w-11 h-11 rounded-2xl action-btn flex items-center justify-center text-gold-300 hover:text-white text-lg">
+                    <i class="fa-solid fa-qrcode"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="relative z-20 px-6 py-4 mt-4 bg-royal-950/60 border-t border-gold-400/10 flex items-center justify-between text-[11px] text-slate-400">
+            <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>بطاقة أعمال ذكية</span>
+            </span>
+            <span dir="ltr" class="font-sans text-gold-300/75 font-medium">FRIDAL EGYPT © 2026</span>
+        </div>
+    </main>
+
+    <!-- ==========================================
+         QR CODE MODAL (نافذة المسح السريع المنبثقة)
+         ========================================== -->
+    <div id="qrModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300 opacity-0">
+        <div id="qrModalContent" class="luxury-card w-full max-w-sm rounded-3xl p-6 text-center border border-gold-400/40 transform scale-95 transition-transform duration-300 relative">
+            
+            <!-- Close Button -->
+            <button onclick="closeQRModal()" aria-label="إغلاق" class="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/5 hover:bg-gold-400/20 border border-gold-400/30 text-gold-200 flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Mini Avatar Header -->
+            <div class="w-16 h-16 mx-auto rounded-full p-0.5 bg-gradient-to-tr from-gold-500 to-gold-200 shadow-lg">
+                <img 
+                    src="https://xatimg.com/image/plEJmwdhYfJ0.png" 
+                    alt="Omnia Elaskandrany" 
+                    class="w-full h-full rounded-full object-cover"
+                    onerror="this.onerror=null; this.src='https://placehold.co/150x150/0a0f1d/D4AF37?text=OE';"
+                />
+            </div>
+
+            <h3 class="font-display text-lg font-bold text-gold-gradient mt-3" dir="ltr">Omnia Elaskandrany</h3>
+            <p class="text-xs text-slate-400 mt-0.5">امسح الكود بكاميرا الموبايل مباشرة</p>
+
+            <!-- Mode Switcher: Scan Contact vCard vs Scan Link -->
+            <div class="grid grid-cols-2 gap-1.5 p-1 mt-4 rounded-xl bg-royal-950/90 border border-gold-400/20 text-xs">
+                <button id="tabVcardQR" onclick="switchQRMode('vcard')" class="py-2 px-2 rounded-lg font-bold bg-gold-luxury text-royal-950 transition-all">
+                    حفظ جهة الاتصال
+                </button>
+                <button id="tabUrlQR" onclick="switchQRMode('url')" class="py-2 px-2 rounded-lg font-semibold text-slate-300 hover:text-gold-200 transition-all">
+                    رابط الكارت
+                </button>
+            </div>
+
+            <!-- QR Canvas Container -->
+            <div class="my-5 p-4 bg-white rounded-2xl inline-flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.25)] border-4 border-gold-400/60">
+                <div id="qrcodeContainer" class="flex items-center justify-center min-w-[190px] min-h-[190px]"></div>
+            </div>
+
+            <p id="qrModeDescription" class="text-xs text-gold-200/90 mb-5 px-2 leading-relaxed">
+                وجّه كاميرا هاتف العميل نحو الرمز لحفظ الرقم والإيميل والمسمى الوظيفي تلقائياً.
+            </p>
+
+            <!-- Modal Footer Buttons -->
+            <div class="flex gap-2.5">
+                <button onclick="downloadVCard()" class="flex-1 py-3 px-4 rounded-xl bg-gold-luxury text-royal-950 font-bold text-xs flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>تحميل ملف vCard</span>
+                </button>
+                <button onclick="closeQRModal()" class="py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-gold-400/30 text-slate-200 font-semibold text-xs">
+                    إغلاق
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Toast Notification Box (No alert() used) -->
+    <div id="toastBox" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-4 transition-all duration-300">
+        <div class="px-5 py-3 rounded-2xl bg-royal-900/95 border border-gold-400/60 shadow-[0_10px_30px_rgba(0,0,0,0.8)] backdrop-blur-md flex items-center gap-3 text-xs sm:text-sm font-semibold text-gold-100 whitespace-nowrap">
+            <i id="toastIcon" class="fa-solid fa-circle-check text-gold-400 text-base"></i>
+            <span id="toastMessage">تمت العملية بنجاح</span>
+        </div>
+    </div>
+
+    <!-- Application JavaScript -->
+    <script>
+        // Contact Profile Data Object
+        const contactData = {
+            firstName: "Omnia",
+            lastName: "Elaskandrany",
+            fullName: "Omnia Elaskandrany",
+            title: "Senior Benefits Specialist",
+            org: "Fridal Egypt",
+            phoneLocal: "01096850600",
+            phoneIntl: "+201096850600",
+            email: "Omnia.Elaskandrany@fridalegypt.com",
+            location: "2nd Industrial Zone, Fridal Egypt (المنطقة الصناعية الثانية - شركة فريدال)",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=%D8%A7%D9%84%D9%85%D9%86%D8%B7%D9%82%D8%A9+%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D9%8A%D8%A9+%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9+%D8%B4%D8%B1%D9%83%D8%A9+%D9%81%D8%B1%D9%8A%D8%AF%D8%A7%D9%84+Fridal+Egypt",
+            photoUrl: "https://xatimg.com/image/plEJmwdhYfJ0.png",
+            note: "Designing strategic employee benefits and total rewards programs that empower talent and elevate organizational wellbeing at Fridal Egypt."
+        };
+
+        /**
+         * Build standard vCard 3.0 string for Mobile Contacts (iOS & Android compatible)
+         */
+        function generateVCardString() {
+            const vcardLines = [
+                "BEGIN:VCARD",
+                "VERSION:3.0",
+                `N:${contactData.lastName};${contactData.firstName};;;`,
+                `FN:${contactData.fullName}`,
+                `ORG:${contactData.org}`,
+                `TITLE:${contactData.title}`,
+                `TEL;TYPE=CELL,VOICE,PREF:${contactData.phoneIntl}`,
+                `EMAIL;TYPE=WORK,INTERNET:${contactData.email}`,
+                `ADR;TYPE=WORK:;;${contactData.location};;;;`,
+                `URL:${contactData.mapsUrl}`,
+                `PHOTO;VALUE=URI:${contactData.photoUrl}`,
+                `NOTE:${contactData.note}`,
+                "END:VCARD"
+            ];
+            return vcardLines.join("\r\n");
+        }
+
+        /**
+         * Trigger instant download of .vcf file
+         */
+        function downloadVCard() {
+            try {
+                const vcardContent = generateVCardString();
+                const blob = new Blob([vcardContent], { type: "text/vcard;charset=utf-8;" });
+                const url = URL.createObjectURL(blob);
+                
+                const downloadLink = document.createElement("a");
+                downloadLink.href = url;
+                downloadLink.setAttribute("download", "Omnia_Elaskandrany_Fridal_Egypt.vcf");
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                
+                setTimeout(() => URL.revokeObjectURL(url), 1500);
+                showToast("تم تجهيز ملف جهة الاتصال (Omnia Elaskandrany.vcf) للحفظ في هاتفك!");
+            } catch (err) {
+                showToast("حدث خطأ أثناء تحميل جهة الاتصال", "fa-circle-exclamation");
+            }
+        }
+
+        /**
+         * QR Code Modal Logic (Supports switching between Direct vCard QR & Link QR)
+         */
+        let currentQRMode = 'vcard';
+
+        function renderQRCode(mode) {
+            const container = document.getElementById("qrcodeContainer");
+            container.innerHTML = "";
+
+            // Compact vCard for fast optical scanning or URL
+            const qrPayload = (mode === 'vcard')
+                ? [
+                    "BEGIN:VCARD",
+                    "VERSION:3.0",
+                    "N:Elaskandrany;Omnia",
+                    "FN:Omnia Elaskandrany",
+                    "ORG:Fridal Egypt",
+                    "TITLE:Senior Benefits Specialist",
+                    "TEL:+201096850600",
+                    "EMAIL:Omnia.Elaskandrany@fridalegypt.com",
+                    "ADR:;;2nd Industrial Zone, Fridal Egypt;;;Egypt",
+                    "END:VCARD"
+                  ].join("\n")
+                : window.location.href;
+
+            new QRCode(container, {
+                text: qrPayload,
+                width: 190,
+                height: 190,
+                colorDark: "#050811",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.M
+            });
+        }
+
+        function switchQRMode(mode) {
+            currentQRMode = mode;
+            const tabVcard = document.getElementById("tabVcardQR");
+            const tabUrl = document.getElementById("tabUrlQR");
+            const desc = document.getElementById("qrModeDescription");
+
+            if (mode === 'vcard') {
+                tabVcard.className = "py-2 px-2 rounded-lg font-bold bg-gold-luxury text-royal-950 transition-all";
+                tabUrl.className = "py-2 px-2 rounded-lg font-semibold text-slate-300 hover:text-gold-200 transition-all";
+                desc.textContent = "وجّه كاميرا هاتف العميل نحو الرمز لحفظ الرقم والإيميل والمسمى الوظيفي تلقائياً.";
+            } else {
+                tabUrl.className = "py-2 px-2 rounded-lg font-bold bg-gold-luxury text-royal-950 transition-all";
+                tabVcard.className = "py-2 px-2 rounded-lg font-semibold text-slate-300 hover:text-gold-200 transition-all";
+                desc.textContent = "امسح الرمز لفتح رابط بطاقة الأعمال الرقمية مباشرة على هاتف العميل.";
+            }
+            renderQRCode(mode);
+        }
+
+        function openQRModal() {
+            const modal = document.getElementById("qrModal");
+            const content = document.getElementById("qrModalContent");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            renderQRCode(currentQRMode);
+
+            requestAnimationFrame(() => {
+                modal.classList.remove("opacity-0");
+                content.classList.remove("scale-95");
+                content.classList.add("scale-100");
+            });
+        }
+
+        function closeQRModal() {
+            const modal = document.getElementById("qrModal");
+            const content = document.getElementById("qrModalContent");
+            modal.classList.add("opacity-0");
+            content.classList.remove("scale-100");
+            content.classList.add("scale-95");
+
+            setTimeout(() => {
+                modal.classList.remove("flex");
+                modal.classList.add("hidden");
+            }, 280);
+        }
+
+        // Close modal when clicking outside the card
+        document.getElementById("qrModal").addEventListener("click", function(e) {
+            if (e.target === this) {
+                closeQRModal();
+            }
+        });
+
+        /**
+         * Copy text helper using fallback-safe execCommand for iframe compatibility
+         */
+        function copyText(textToCopy, successMessage) {
+            const textArea = document.createElement("textarea");
+            textArea.value = textToCopy;
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                document.execCommand('copy');
+                showToast(successMessage);
+            } catch (err) {
+                showToast("تعذر النسخ التلقائي", "fa-circle-info");
+            }
+            document.body.removeChild(textArea);
+        }
+
+        /**
+         * Share Card using Web Share API or Copy fallback
+         */
+        async function shareCard() {
+            const shareData = {
+                title: "Omnia Elaskandrany | Senior Benefits Specialist - Fridal Egypt",
+                text: "بطاقة الأعمال الرقمية لـ Omnia Elaskandrany - Senior Benefits Specialist at Fridal Egypt\nMobile: 01096850600",
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (err) {
+                    // User cancelled share
+                }
+            } else {
+                copyText(`${shareData.text}\nEmail: ${contactData.email}`, "تم نسخ بيانات البطاقة لمشاركتها!");
+            }
+        }
+
+        /**
+         * Custom Toast Notification
+         */
+        let toastTimeout;
+        function showToast(message, iconClass = "fa-circle-check") {
+            const toast = document.getElementById("toastBox");
+            const msgEl = document.getElementById("toastMessage");
+            const iconEl = document.getElementById("toastIcon");
+
+            msgEl.textContent = message;
+            iconEl.className = `fa-solid ${iconClass} text-gold-400 text-base`;
+
+            toast.classList.remove("opacity-0", "translate-y-4");
+            toast.classList.add("opacity-100", "translate-y-0");
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove("opacity-100", "translate-y-0");
+                toast.classList.add("opacity-0", "translate-y-4");
+            }, 3200);
+        }
+
+        /**
+         * Interactive 3D Touch & Mouse Glare / Subtle Tilt Effect
+         */
+        const card = document.getElementById("businessCard");
+        const glare = document.getElementById("cardGlare");
+
+        function handlePointerMove(clientX, clientY) {
+            const rect = card.getBoundingClientRect();
+            const x = clientX - rect.left;
+            const y = clientY - rect.top;
+
+            // Update radial glare position
+            glare.style.setProperty("--x", `${x}px`);
+            glare.style.setProperty("--y", `${y}px`);
+
+            // Subtle luxury 3D tilt (constrained so mobile scrolling remains comfortable)
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -2.5;
+            const rotateY = ((x - centerX) / centerX) * 2.5;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+        }
+
+        function resetCardTilt() {
+            card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+        }
+
+        card.addEventListener("mousemove", (e) => handlePointerMove(e.clientX, e.clientY));
+        card.addEventListener("mouseleave", resetCardTilt);
+
+        card.addEventListener("touchmove", (e) => {
+            if (e.touches.length > 0) {
+                const touch = e.touches[0];
+                handlePointerMove(touch.clientX, touch.clientY);
+            }
+        }, { passive: true });
+
+        card.addEventListener("touchend", resetCardTilt, { passive: true });
+    </script>
+</body>
+</html>
+```
